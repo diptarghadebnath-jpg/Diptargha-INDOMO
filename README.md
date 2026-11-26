@@ -56,6 +56,227 @@ import osfrom datetime import datetimeMEMORY_FILE = "extract_memory.txt"cla
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXTRACT ROCKET ANIMATION</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+    height: 100vh;
+    font-family: monospace;
+    color: #00ff44;
+}
+
+.scene {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.title {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(25px, 5vw, 45px);
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px #00ff44;
+    z-index: 10;
+}
+
+.subtitle {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #00aa33;
+}
+
+.binary {
+    position: absolute;
+    color: #00ff44;
+    font-size: 17px;
+    text-shadow: 0 0 10px #00ff44;
+    opacity: 0;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+    20%, 80% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateY(-20vh);
+        opacity: 0;
+    }
+}
+
+.rocket {
+    position: absolute;
+    left: 50%;
+    bottom: -180px;
+    transform: translateX(-50%);
+    font-size: 85px;
+    z-index: 5;
+    animation: launch 7s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px #00ccff);
+}
+
+@keyframes launch {
+    0%, 10% {
+        bottom: -180px;
+    }
+    35% {
+        bottom: 42%;
+    }
+    50% {
+        bottom: 65%;
+        opacity: 1;
+    }
+    60% {
+        bottom: 110%;
+        opacity: 0;
+    }
+    90% {
+        bottom: 110%;
+        opacity: 0;
+    }
+    100% {
+        bottom: -180px;
+        opacity: 1;
+    }
+}
+
+.flame {
+    position: absolute;
+    left: 50%;
+    bottom: -55px;
+    transform: translateX(-50%);
+    font-size: 48px;
+    animation: fire .15s infinite alternate;
+}
+
+@keyframes fire {
+    from { transform: translateX(-50%) scaleY(.8); }
+    to { transform: translateX(-50%) scaleY(1.3); }
+}
+
+.cloud {
+    position: absolute;
+    left: 50%;
+    bottom: 43%;
+    transform: translateX(-50%);
+    font-size: 120px;
+    filter: drop-shadow(0 0 20px #555);
+    animation: cloudMove 7s infinite;
+}
+
+@keyframes cloudMove {
+    0%, 20% { opacity: 0; transform: translateX(-50%) scale(.5); }
+    35% { opacity: 1; transform: translateX(-50%) scale(1.5); }
+    65% { opacity: .8; transform: translateX(-50%) scale(2.5); }
+    100% { opacity: 0; transform: translateX(-50%) scale(3); }
+}
+
+.explosion {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, white, #00ff44, #ff9900, transparent);
+    transform: translate(-50%, -50%) scale(0);
+    animation: boom 7s infinite;
+}
+
+@keyframes boom {
+    0%, 47%, 100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    51% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    58% { transform: translate(-50%, -50%) scale(16); opacity: .8; }
+    66% { transform: translate(-50%, -50%) scale(25); opacity: 0; }
+}
+
+.status {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 13px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: .3; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <div class="title">EXTRACT</div>
+    <div class="subtitle">ROCKET SYSTEM // ONLINE</div>
+
+    <div id="binary-container"></div>
+
+    <div class="cloud">☁️</div>
+
+    <div class="rocket">
+        🚀
+        <div class="flame">🔥</div>
+    </div>
+
+    <div class="explosion"></div>
+
+    <div class="status">
+        [ SYSTEM ACTIVE ] — LAUNCH SEQUENCE RUNNING
+    </div>
+
+</div>
+
+<script>
+const container = document.getElementById("binary-container");
+
+for (let i = 0; i < 65; i++) {
+    const digit = document.createElement("div");
+    digit.className = "binary";
+
+    digit.innerText = Math.random() > 0.5 ? "1" : "0";
+
+    digit.style.left = Math.random() * 100 + "%";
+    digit.style.animationDuration = (3 + Math.random() * 7) + "s";
+    digit.style.animationDelay = Math.random() * 7 + "s";
+    digit.style.fontSize = (12 + Math.random() * 18) + "px";
+
+    container.appendChild(digit);
+}
+</script>
+
+</body>
+</html>
+
 
 
 
