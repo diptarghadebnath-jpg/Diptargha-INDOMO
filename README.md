@@ -8,7 +8,7 @@
 </h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=Python+Developer;Java+Programmer;Cybersecurity+Enthusiast;AI+Developer;I LIKE TO MAKE AI USING PYTHN AND JAVA" alt="Typing animation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=Python+Developer;Java+Programmer;Cybersecurity+Enthusiast;AI+Developer" alt="Typing animation" />
 </p>
 
 
