@@ -36,65 +36,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 🛡️ AI CYBER DEFENSE
 
 «AI-powered cybersecurity research, defensive security tools, and ethical hacking labs built with Python and Java.»
@@ -108,6 +49,7 @@ The project combines AI-based security analysis, firewall concepts, antivirus te
 
 
 
+import osfrom datetime import datetimeMEMORY_FILE = "extract_memory.txt"class Extract:    def __init__(self):                                                  self.user_name = "Friend"        self.load_memory()    def load_memory(self):        if os.path.exists(MEMORY_FILE):            with open(MEMORY_FILE, "r") as f:                for line in f:                    if line.startswith("NAME="):                        self.user_name = line.strip().split("=")[1]    def save_memory(self):        with open(MEMORY_FILE, "w") as f:            f.write(f"NAME={self.user_name}\n")    def save_chat(self, user, bot):        with open("extract_chat_history.txt", "a") as f:            time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")            f.write(f"\n[{time}]\n")            f.write(f"You: {user}\n")            f.write(f"Extract: {bot}\n")    def reply(self, text):        msg = text.lower()        if msg.startswith("my name is "):            self.user_name = text[11:].strip()            self.save_memory()            return f"I'll remember you, {self.user_name}!"        if "what is my name" in msg:            return f"Your name is {self.user_name}."        if "hello" in msg or "hi" in msg:            return f"Hello, {self.user_name}! How can I help?"        if "time" in msg:            return datetime.now().strftime("Current time: %H:%M:%S")        if "date" in msg:            return datetime.now().strftime("Today's date: %Y-%m-%d")        if msg == "bye":            return "Goodbye! See you next time."        if msg ==        return bot = Extract()print("                                           === EXTRACT AI ===")while True:    user = input("You: ")    answer = bot.reply(user)    print("Extract:", answer)    bot.save_chat(user, answer)    if user.lower() == "bye":        break
 
 
 
